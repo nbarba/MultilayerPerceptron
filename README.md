@@ -1,7 +1,7 @@
 # MultilayerPerceptron
 This repository contains sample code for creating a multi-layer perceptron using Theano.
 
-# Use
+# Usage
 
 The use of the MLP class is pretty straightforward. The neural network must first be instantiated  and the method to train the network must be invoked, i.e.: 
 
