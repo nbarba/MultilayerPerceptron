@@ -6,6 +6,7 @@ import numpy as np
 from random import random 
 import theano.tensor.nnet
 from theano.compile.debugmode import DebugMode
+from sklearn.metrics import accuracy_score
 from sklearn.metrics import classification_report
 from sklearn import preprocessing
 
@@ -67,7 +68,7 @@ class MLP(object):
         for epoch in xrange(self.max_epochs):
            
             #shuffle training set
-            features_shuffled,labels_shuffled=self.shuffle_inplace(features_train,labels_train)
+            features_shuffled,labels_shuffled=shuffle_inplace(features_train,labels_train)
 
             cost_sum = 0.0
             predicted_labels=[]
@@ -95,16 +96,6 @@ class MLP(object):
     
             print "Epoch " + str(epoch)+": Training Cost="+str(cost_sum)+", Training Accuracy="+str(acc)
 
-
-    def shuffle_inplace(self,array1, array2):
-        """ Shuffle two arrays but keep correspondence between elements """
-
-        assert len(array1) == len(array2)
-        p = np.random.permutation(len(array1))
-
-        return np.array(array1)[p], np.array(array2)[p]
-
-
     @property
     def max_epochs(self):
         return self._max_epochs
@@ -120,6 +111,15 @@ class MLP(object):
     @convergence_error.setter
     def convergence_error(self, value):
         self._convergence_error = value
+
+
+def shuffle_inplace(array1, array2):
+    """ Shuffle two arrays but keep correspondence between elements """
+
+    assert len(array1) == len(array2)
+    p = np.random.permutation(len(array1))
+
+    return np.array(array1)[p], np.array(array2)[p]
 
 
 def load_dataset(filename):
