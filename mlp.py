@@ -1,4 +1,4 @@
-""" Implementation of a multilayer perceptron in Theano  """
+""" Implementation of a multilayer perceptron using Theano  """
 
 import theano
 import theano.tensor as T
