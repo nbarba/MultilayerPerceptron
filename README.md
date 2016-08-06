@@ -16,7 +16,7 @@ Note that to instantiate the network, the number of neurons for the input and hi
 
 # Toy Example
 
-A toy example is also provided, that attempts to train the multi-layer perceptron on a real binary classification dataset. The dataset used is a randomly selected subset of the "banknote authentication" dataset available by the [UCI Machine learning repository](https://archive.ics.uci.edu/ml/datasets/banknote+authentication). The task is to distinguish original from forged bank-note like statements, using wavelet features extracted from images. The dataset is un-normalized, so the example also includes code to perform z-score normalization on the train/test set. 
+A toy example is also provided, that attempts to train the multi-layer perceptron on a real binary classification dataset. The dataset used is a randomly selected subset of the "banknote authentication" dataset available at the [UCI Machine learning repository](https://archive.ics.uci.edu/ml/datasets/banknote+authentication). The task is to distinguish original from forged bank-note like statements, using wavelet features extracted from images. The dataset is un-normalized, so the example also includes code to perform z-score normalization on the train/test set. 
 
 
 
