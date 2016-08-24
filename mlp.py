@@ -64,10 +64,11 @@ class MLP(object):
 
         assert len(features_train) == len(labels_train)
         total_batches,remaining_instances=divmod(len(features_train),batch_size);
-        epoch=1;
-        cost_sum=self._convergence_error+1; #initialize cost_sum above convergence_error
+        epoch=1;  
+        cost_sum=self._convergence_error+1; #initialize cost_sum just above convergence_error
 
         while cost_sum > self._convergence_error and epoch < self._max_epochs:        
+
             #shuffle training set
             features_shuffled,labels_shuffled=shuffle_inplace(features_train,labels_train)
 
