@@ -64,9 +64,11 @@ class MLP(object):
 
         assert len(features_train) == len(labels_train)
         total_batches,remaining_instances=divmod(len(features_train),batch_size);
+        epoch=1;
+        cost_sum=self._convergence_error+1; #initialize cost_sum above convergence_error
 
-        for epoch in xrange(self.max_epochs):
-           
+        while cost_sum > self._convergence_error and epoch < self._max_epochs:
+                
             #shuffle training set
             features_shuffled,labels_shuffled=shuffle_inplace(features_train,labels_train)
 
@@ -93,8 +95,10 @@ class MLP(object):
      
             # compute accuracy
             acc=accuracy_score(labels_shuffled, threshold_labels(predicted_labels,0.5))
-    
+            
             print "Epoch " + str(epoch)+": Training Cost="+str(cost_sum)+", Training Accuracy="+str(acc)
+            epoch+=1;
+
 
     @property
     def max_epochs(self):
@@ -136,7 +140,7 @@ def load_dataset(filename):
 
 
 def threshold_labels(labels,threshold_value):
-    """ compute the accuracy """
+    """ utility method used when computing the accuracy """
     tmp=np.array(labels)
     tmp[tmp>threshold_value]=1
     tmp[tmp<=threshold_value]=0
