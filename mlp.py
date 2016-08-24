@@ -67,8 +67,7 @@ class MLP(object):
         epoch=1;
         cost_sum=self._convergence_error+1; #initialize cost_sum above convergence_error
 
-        while cost_sum > self._convergence_error and epoch < self._max_epochs:
-                
+        while cost_sum > self._convergence_error and epoch < self._max_epochs:        
             #shuffle training set
             features_shuffled,labels_shuffled=shuffle_inplace(features_train,labels_train)
 
@@ -163,14 +162,15 @@ if __name__ == "__main__":
     features_train_scaled= (features_train - training_mean) / training_std
   
     # train network
-    print "----- Instantiate and train network ------"
+    print "----- Instantiating / training network ------"
     number_of_features=len(features_train_scaled[1])
     classifier=MLP(number_of_features)
     classifier.minibatch_gradient_descent(features_train_scaled,labels_train,10);
+    print "\n----- Training done! ------"
 
 
     # test network
-    print "\n----- Evaluate performance on test set ------"
+    print "\n----- Evaluating performance on test set ------"
     test_set=load_dataset(test_filename);
     features_test=[test_set[i][1] for i in range(0,len(test_set))];    
     labels_test=[test_set[i][0] for i in range(0,len(test_set))]; 
