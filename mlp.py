@@ -167,7 +167,7 @@ if __name__ == "__main__":
     number_of_features=len(features_train_scaled[1])
     classifier=MLP(number_of_features)
     classifier.minibatch_gradient_descent(features_train_scaled,labels_train,10);
-    print "\n----- Training done! ------"
+    print "\n----- Training completed! ------"
 
 
     # test network
