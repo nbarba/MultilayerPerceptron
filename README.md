@@ -6,13 +6,16 @@ Theano wrapper for creating a simple multi-layer perceptron neural network.
 The use of the MLP class is pretty straightforward. The neural network must first be instantiated  and the method to train the network must be invoked, i.e.: 
 
 ```
+#Create the classifier
 classifier = MLP(number_of_features,number_of_neurons_in_hidden_layer)
+#Train
 classifier.minibatch_gradient_descent(features,labels,batch_size);
 
 ```
-Constructor parameters include the number of neurons for the input and hidden layer. The minibatch gradient descent algorithm is implemented, so the batch size must also be passed as an argument. Other training parameters that can be defined, include
-  - the learning rate
-  - the l2 normalization lambda value
+Constructor parameters include the number of neurons for the input and hidden layer. 
+For training, except features & labels, the batch size should also be defined. Other training parameters that can be defined, include:
+  * the learning rate
+  * the l2 normalization lambda value
 
 # Toy Example
 
