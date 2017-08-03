@@ -10,7 +10,7 @@ classifier = MLP(number_of_features,number_of_neurons_in_hidden_layer)
 classifier.minibatch_gradient_descent(features,labels,batch_size);
 
 ```
-Note that to instantiate the network, the number of neurons for the input and hidden layer are passed as arguments. Also,  for efficient training, the minibatch gradient descent algorithm is implemented and the batch size must be passed as an argument. Other training parameters that can be defined, include
+Constructor parameters include the number of neurons for the input and hidden layer. The minibatch gradient descent algorithm is implemented, so the batch size must also be passed as an argument. Other training parameters that can be defined, include
   - the learning rate
   - the l2 normalization lambda value
 
