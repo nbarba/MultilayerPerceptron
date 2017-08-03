@@ -1,5 +1,5 @@
 # MultilayerPerceptron
-Code for creating a multi-layer perceptron using Theano.
+Theano wrapper for creating a simple multi-layer perceptron neural network.
 
 # Usage
 
